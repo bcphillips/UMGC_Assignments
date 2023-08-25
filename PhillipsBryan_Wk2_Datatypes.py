@@ -4,19 +4,6 @@ Week 2 Assignment - Data Types
 Bryan Phillips
 08/22/23
 DATA 300/6381
-
-NOTE: you will be graded on the following:
-
-Exercise on Python Data Types:
-
-1. Read, study and execute PhillipsBryan_Wk2Assignment_DataTypes.py; you can copy the entire code from the file or from
-the Word document or parts of it into code blocks in a Jupyter workbook and execute it there. You can also copy the code
-into a Python IDE, like Spyder (from anaconda) and execute it there.
-2. Modify the following code, such that if the elements are of type float, then add 5 to the previous value:
-This code loops through all items of list3 and if they are of type str, then it appends 'of course'
-3. Notice that when we indent statements we should hit tab
-4. Before you modify the code below try to guess what your output will be...
-5. Add at least two comments describing functioning of the code below
 """
 
 # Initialized list with mixed data types
