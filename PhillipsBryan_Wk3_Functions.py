@@ -11,7 +11,7 @@ DATA 300/6381
 """
 
 # Part #1
-# ----------------------------------------------------------------------------------------------------------------------
+
 
 
 def fahrToCelsius(tempFahrenheit):
@@ -26,7 +26,7 @@ def fahrToCelsius(tempFahrenheit):
 print("32 degrees Fahrenheit in Celsius is: ", fahrToCelsius(32))
 
 # Part #2
-# ----------------------------------------------------------------------------------------------------------------------
+
 
 
 def tempClassifier(tempCelsius):
