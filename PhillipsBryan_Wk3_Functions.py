@@ -11,6 +11,8 @@ DATA 300/6381
 """
 
 
+# Function fahrToCelsius converts a temperature in Fahrenheit to degrees Celsius.
+# It contains one input parameter called tempFahrenheit and returns the variable convertedTemp back to the user.
 def fahrToCelsius(tempFahrenheit):
     converterTemp = (tempFahrenheit - 32) * 5 / 9
     return converterTemp
