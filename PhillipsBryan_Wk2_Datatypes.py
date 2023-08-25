@@ -19,9 +19,6 @@ This code loops through all items of list3 and if they are of type str, then it 
 5. Add at least two comments describing functioning of the code below
 """
 
-# Modified/updated script
-# ----------------------------------------------------------------------------------------------------------------------
-
 # Initialized list with mixed data types
 list3 = list(('hello', 1, 'you', 6.3, 'yes', 7, 2.3))
 
