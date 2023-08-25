@@ -5,17 +5,16 @@ Bryan Phillips
 08/25/23
 DATA 300/6381
 
-
-
-
+Part 1 - Simple Temperature Calculator
+Part 2 - Temperature Classifier
 """
+
 
 # Part #1
 
 
-
 def fahrToCelsius(tempFahrenheit):
-    # Function fahrToCelsius converts a temperature in Fahrenheit to degrees Celsius.
+    # Function fahrToCelsius converts a temperature in degrees Fahrenheit to degrees Celsius.
     # It contains one input parameter called tempFahrenheit and returns the variable convertedTemp back to the user.
 
     converterTemp = (tempFahrenheit - 32) * 5 / 9
@@ -23,13 +22,17 @@ def fahrToCelsius(tempFahrenheit):
 
 
 # Test Case: Update number between parenthesis in order to convert Fahrenheit temperature to degrees Celsius
-print("32 degrees Fahrenheit in Celsius is: ", fahrToCelsius(32))
+print("32 degrees Fahrenheit in Celsius is: ", fahrToCelsius(98))
+
 
 # Part #2
 
 
-
 def tempClassifier(tempCelsius):
+    # Function tempClassifier classifies the converted temperature from the fahrToCelsius functions and classifies that
+    # Celsius temperature on a scale from 0-3 as cold, slippery, comfortable or warm.
+    # The function contains one input parameter tempeCelsius
+    # and returns a tuple based on the classified temperature.
 
     if tempCelsius < -2:
         return 0, "cold"
@@ -41,7 +44,7 @@ def tempClassifier(tempCelsius):
         return 3, "warm"
 
 
-user_temperature = fahrToCelsius(32)
+classify_temperature = fahrToCelsius(98)
 
 print("\r")  # Carriage return new line
-print(tempClassifier(user_temperature))
+print(tempClassifier(classify_temperature))
