@@ -18,5 +18,5 @@ def fahrToCelsius(tempFahrenheit):
     return converterTemp
 
 
-# Test Case
+# Test Case - Update number between parenthesis in order to convert Fahrenheit temperature to degrees Celsius
 print("32 degrees Fahrenheit in Celsius is: ", fahrToCelsius(32))
