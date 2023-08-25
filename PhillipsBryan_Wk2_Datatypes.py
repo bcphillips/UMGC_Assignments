@@ -2,7 +2,7 @@
 Week 2 Assignment - Data Types
 
 Bryan Phillips
-08/22/23
+08/25/23
 DATA 300/6381
 """
 
