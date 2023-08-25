@@ -17,18 +17,7 @@ This code loops through all items of list3 and if they are of type str, then it 
 3. Notice that when we indent statements we should hit tab
 4. Before you modify the code below try to guess what your output will be...
 5. Add at least two comments describing functioning of the code below
-
 """
-
-# Original/unmodified script
-# ----------------------------------------------------------------------------------------------------------------------
-
-# list3 = list(('hello', 1, 'you', 6.3, 'yes', 7, 2.3))
-#
-# for i in range(len(list3)):
-#     if str(type(list3[i])) == "<class 'str'>":
-#         list3[i] = list3[i] + " of course"
-# print('list3=', list3)
 
 # Modified/updated script
 # ----------------------------------------------------------------------------------------------------------------------
