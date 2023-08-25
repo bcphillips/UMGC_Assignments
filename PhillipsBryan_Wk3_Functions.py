@@ -22,15 +22,15 @@ def fahrToCelsius(tempFahrenheit):
 
 
 # Test Case: Update number between parenthesis in order to convert Fahrenheit temperature to degrees Celsius
-print("32 degrees Fahrenheit in Celsius is: ", fahrToCelsius(98))
+print("32 degrees Fahrenheit in Celsius is: ", fahrToCelsius(32))
 
 
 # Part #2
 
 
 def tempClassifier(tempCelsius):
-    # Function tempClassifier classifies the converted temperature from the fahrToCelsius functions and classifies that
-    # Celsius temperature on a scale from 0-3 as cold, slippery, comfortable or warm.
+    # Function tempClassifier uses the function fahrToCelsius and classifies that Celsius temperature on a scale from
+    # 0-3 as cold, slippery, comfortable or warm.
     # The function contains one input parameter tempeCelsius
     # and returns a tuple based on the classified temperature.
 
@@ -44,7 +44,7 @@ def tempClassifier(tempCelsius):
         return 3, "warm"
 
 
-classify_temperature = fahrToCelsius(98)
+classify_temperature = fahrToCelsius(32)
 
 print("\r")  # Carriage return new line
 print(tempClassifier(classify_temperature))
