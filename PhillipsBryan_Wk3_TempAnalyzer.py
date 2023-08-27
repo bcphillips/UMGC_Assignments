@@ -71,7 +71,7 @@ def main():
         class_counter[tempClass[0]] += 1
 
     # Output and display readable formatted string.
-    print("\r")  # Start output on new line
+    print("\r")  # Carriage return new line
     format_output = (f"There are {class_counter[0]}, 0 degree Celsius, {class_counter[1]} one degree Celsius, "
                      f"{class_counter[2]} two degree Celsius and {class_counter[3]} three degree Celsius.")
     print(format_output)
