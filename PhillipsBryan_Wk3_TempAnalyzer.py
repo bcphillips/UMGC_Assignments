@@ -53,7 +53,7 @@ def main():
     tempClasses = []
 
     # for loop to iterate through tempData and convert temperatures using fahrtoCelsius function and place converted
-    # temps in appropriate classifier using function tempClassifier
+    # temps in appropriate classifier using function tempClassifier.
     for tempFahr in tempData:
         tempCel = fahrToCelsius(tempFahr)
         tempClass = tempClassifier(tempCel)
