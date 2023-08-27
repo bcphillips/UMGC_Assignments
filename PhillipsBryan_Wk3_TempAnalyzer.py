@@ -61,8 +61,8 @@ def main():
         tempClasses.append(tempClass)
 
     # Output converted temperatures in tuple format.
-    for classification in tempClasses:
-        print(classification)
+    for classify_temperature in tempClasses:
+        print(classify_temperature)
 
     # Counter dictionary to store how many temperatures belong to which class.
     class_counter = {0: 0, 1: 0, 2: 0, 3: 0}
