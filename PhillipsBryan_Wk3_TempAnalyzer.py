@@ -49,6 +49,7 @@ def tempClassifier(tempCelsius):
 
 
 def main():
+
     # Empty list to store temperature class information.
     tempClasses = []
 
