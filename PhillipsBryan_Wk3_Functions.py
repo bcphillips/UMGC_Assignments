@@ -2,7 +2,7 @@
 Week 3 Assignment - Data Wrangling
 
 Bryan Phillips
-08/25/23
+09/04/23
 DATA 300/6381
 
 Part 1 - Simple Temperature Calculator
@@ -17,8 +17,8 @@ def fahrToCelsius(tempFahrenheit):
     # Function fahrToCelsius converts a temperature in degrees Fahrenheit to degrees Celsius.
     # It contains one input parameter called tempFahrenheit and returns the variable convertedTemp back to the user.
 
-    converterTemp = (tempFahrenheit - 32) * 5 / 9
-    return converterTemp
+    convertedTemp = (tempFahrenheit - 32) * 5 / 9
+    return convertedTemp
 
 
 # Test Case: Update number between parenthesis in order to convert Fahrenheit temperature to degrees Celsius
@@ -29,7 +29,7 @@ print("32 degrees Fahrenheit in Celsius is: ", fahrToCelsius(32))
 
 def tempClassifier(tempCelsius):
     # Classifies a Celsius temperature on a scale from 0-3 as cold(0), slippery(1), comfortable(2), or warm(3).
-    # The function contains one input parameter tempeCelsius
+    # The function contains one input parameter tempCelsius
     # and returns a tuple based on the classified temperature.
 
     if tempCelsius < -2:
