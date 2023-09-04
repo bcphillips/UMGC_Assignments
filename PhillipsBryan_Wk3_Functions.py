@@ -27,7 +27,6 @@ print("32 degrees Fahrenheit in Celsius is: ", fahrToCelsius(32))
 
 # Part #2
 
-
 def tempClassifier(tempCelsius):
     # Classifies a Celsius temperature on a scale from 0-3 as cold(0), slippery(1), comfortable(2), or warm(3).
     # The function contains one input parameter tempeCelsius
