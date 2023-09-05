@@ -26,6 +26,11 @@ column_names = data.columns.tolist()
 print("\r")  # Carriage return new line
 print("What are the column names?:", ", ".join(column_names))
 
+# Display the datatype for each column
+print("\r")  # Carriage return new line
+print("What are the datatypes of the columns?:")
+print(data.dtypes)
+
 # Display mean Fahrenheit temperature of column TEMP
 print("\r")  # Carriage return new line
 mean_ColumnTemp = data["TEMP"].mean()
