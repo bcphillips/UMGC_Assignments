@@ -30,10 +30,12 @@ column_names = data.columns.tolist()
 print("\r")  # Carriage return new line
 print("What are the column names?:", ", ".join(column_names))
 
-# Display the datatype for each column
+# Create a list of column datatypes
+column_dtypes = [f"{col}: {dtype}" for col, dtype in zip(data.columns, data.dtypes)]
+
+# Display the column datatypes separated by commas
 print("\r")  # Carriage return new line
-print("What are the datatypes of the columns?:")
-print(data.dtypes)
+print("What are the datatypes of the columns?:", ", ".join(column_dtypes))
 
 # Display mean Fahrenheit temperature of column TEMP
 print("\r")  # Carriage return new line
@@ -115,9 +117,40 @@ kumpula_june = kumpula_data.loc[(kumpula_data
 rovaniemi_june = rovaniemi_data.loc[(rovaniemi_data
                                     ["YR--MODAHRMN"] >= 201706010000) & (rovaniemi_data["YR--MODAHRMN"] < 201707010000)]
 
-# Create variable for statistical analysis of Helsinki Kumpula mean, min and max temperatures for May & June
+# Create variables for statistical analysis of Helsinki Kumpula mean, min and max temperatures for May & June
 kumpula_may_mean = kumpula_may["Celsius"].mean().round(1)
+kumpula_may_min = kumpula_may["Celsius"].min().round(1)
+kumpula_may_max = kumpula_may["Celsius"].max().round(1)
 
-# Test output
+kumpula_june_mean = kumpula_june["Celsius"].mean().round(1)
+kumpula_june_min = kumpula_june["Celsius"].min().round(1)
+kumpula_june_max = kumpula_june["Celsius"].max().round(1)
+
+# Create variables for statistical analysis of Rovaniemi mean, min and max temperatures for May & June
+rovaniemi_may_mean = rovaniemi_may["Celsius"].mean().round(1)
+rovaniemi_may_min = rovaniemi_may["Celsius"].min().round(1)
+rovaniemi_may_max = rovaniemi_may["Celsius"].max().round(1)
+
+rovaniemi_june_mean = rovaniemi_june["Celsius"].mean().round(1)
+rovaniemi_june_min = rovaniemi_june["Celsius"].min().round(1)
+rovaniemi_june_max = rovaniemi_june["Celsius"].max().round(1)
+
+# Display the mean, min and max for Helsinki Kumpula May & June temperatures
 print("\r")  # Carriage return new line
-print(f"Helsinki Kumpula mean temperature for the month of may is {kumpula_may_mean} degrees Celsius.")
+print(f"Helsinki Kumpula mean temperature for the month of May is {kumpula_may_mean} degrees Celsius.")
+print(f"Helsinki Kumpula min temperature for the month of May is {kumpula_may_min} degrees Celsius.")
+print(f"Helsinki Kumpula max temperature for the month of May is {kumpula_may_max} degrees Celsius.")
+print("\r")  # Carriage return new line
+print(f"Helsinki Kumpula mean temperature for the month of June is {kumpula_june_mean} degrees Celsius.")
+print(f"Helsinki Kumpula min temperature for the month of June is {kumpula_june_min} degrees Celsius.")
+print(f"Helsinki Kumpula max temperature for the month of June is {kumpula_june_max} degrees Celsius.")
+
+# Display the mean, min and max for Helsinki Rovaniemi May & June temperatures
+print("\r")  # Carriage return new line
+print(f"Rovaniemi mean temperature for the month of May is {rovaniemi_may_mean} degrees Celsius.")
+print(f"Rovaniemi min temperature for the month of May is {rovaniemi_may_min} degrees Celsius.")
+print(f"Rovaniemi max temperature for the month of May is {rovaniemi_may_max} degrees Celsius.")
+print("\r")  # Carriage return new line
+print(f"Rovaniemi mean temperature for the month of June is {rovaniemi_june_mean} degrees Celsius.")
+print(f"Rovaniemi min temperature for the month of June is {rovaniemi_june_min} degrees Celsius.")
+print(f"Rovaniemi max temperature for the month of June is {rovaniemi_june_max} degrees Celsius.")
