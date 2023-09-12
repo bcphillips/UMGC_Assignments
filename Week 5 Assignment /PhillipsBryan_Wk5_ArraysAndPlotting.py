@@ -2,7 +2,7 @@
 Week 5 Assignment - NumPy Arrays and matplotlib Plotting
 
 Bryan Phillips
-09/08/23
+09/12/23
 DATA 300/6381
 
 Part A - looping_arrays.py
