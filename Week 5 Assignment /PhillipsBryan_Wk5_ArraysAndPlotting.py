@@ -70,9 +70,12 @@ plt.show()
 # # Create DataFrame from .csv file and use country as index
 data_all = pd.read_csv("gapminder_all.csv", index_col="country")
 
+# Creat scatter plot that show the correlation between GDP and life expectancy for 2007
 data_all.plot(kind='scatter', x='gdpPercap_2007', y='lifeExp_2007',
               s=data_all['pop_2007']/1e6)
 
 # Create title for graph/plot and display scatter plot
 plt.title("Correlation Between GDP & Life Expectancy for 2007")
+
+# Display the scatter plot
 plt.show()
