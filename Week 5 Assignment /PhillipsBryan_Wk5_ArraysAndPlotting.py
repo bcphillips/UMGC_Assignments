@@ -14,6 +14,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Set display options to view all data without truncation
+pd.set_option('display.max_columns', None)  # Display all columns
+pd.set_option('display.max_rows', None)  # Display all rows
+pd.set_option('display.width', None)  # Width of the display in characters
+pd.set_option('display.max_colwidth', None)  # Display the full content of each column
+
+
 # Part A
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -35,12 +42,6 @@ for ii in range(np.shape(arr3)[0]):
 
 # Part B
 # ----------------------------------------------------------------------------------------------------------------------
-
-# Import Pandas and set display options to view all data without truncation
-pd.set_option('display.max_columns', None)  # Display all columns
-pd.set_option('display.max_rows', None)  # Display all rows
-pd.set_option('display.width', None)  # Width of the display in characters
-pd.set_option('display.max_colwidth', None)  # Display the full content of each column
 
 # Create DataFrame from .csv file and use country as index
 data = pd.read_csv("gapminder_gdp_asia.csv", index_col="country")
