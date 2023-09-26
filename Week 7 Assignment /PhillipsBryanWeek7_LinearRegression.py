@@ -96,11 +96,5 @@ yticks = [0, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000
 yticklabels = ['0', '$1M', '$2M', '$3M', '$4M', '$5M', '$6M', '$7M', '$8M']
 plt.yticks(yticks, yticklabels)
 
-# Adjust the grid lines
-x_ticks = plt.xticks()[0]
-new_x_ticks = [tick for tick in x_ticks if X['sqft_living'].min() <= tick <= X['sqft_living'].max()]
-plt.xticks(new_x_ticks)
-plt.grid(True)
-
 plt.tight_layout()
 plt.show()
