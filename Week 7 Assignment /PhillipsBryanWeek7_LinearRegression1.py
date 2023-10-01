@@ -108,6 +108,9 @@ def compute_regression_line_values(model, data):
 
 
 def adjust_yticks():
+    """
+    This function changes the y-axis to millions of dollars for the above plots.
+    """
     plt.ylim(0, 8000000)
     yticks = [0, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000]
     yticklabels = ['0', '$1M', '$2M', '$3M', '$4M', '$5M', '$6M', '$7M', '$8M']
