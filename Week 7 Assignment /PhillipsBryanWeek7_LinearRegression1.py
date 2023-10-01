@@ -31,7 +31,7 @@ def display_scatterplotraw(data):
     Viewing the raw data allows one to see a direct correlation between house size and price
     """
     plt.figure(figsize=(12, 6))
-    sns.scatterplot(data=data, x='sqft_living', y='price')
+    sns.scatterplot(data=data, x='sqft_living', y='price', alpha=0.7)
     plt.xlabel('Square Foot Living Area')
     plt.ylabel('House Price')
     plt.title('House Price vs. Square Foot Living Area')
@@ -46,7 +46,7 @@ def display_regression(data, X_pred_values, y_pred_values):
     Datapoints closer to the red line indicate our model is a good fit for the dataset.
     """
     plt.figure(figsize=(12, 6))
-    sns.scatterplot(data=data, x="sqft_living", y="price", color='blue')
+    sns.scatterplot(data=data, x="sqft_living", y="price", color='blue', alpha=0.7)
     plt.plot(X_pred_values, y_pred_values, color='red', linewidth=2)
     plt.title('Raw Data with Regression Line: Price vs. Square Footage Living Area')
     plt.xlabel('Square Footage Living Area')
@@ -66,7 +66,7 @@ def display_actual_vs_predicted(y_test, y_pred):
     Deviation from the line shows that our prediction model differs from the reality of the actual data.
     """
     plt.figure(figsize=(12, 6))
-    sns.scatterplot(x=y_test, y=y_pred, color='r')
+    sns.scatterplot(x=y_test, y=y_pred, color='r', alpha=0.7)
     plt.xlabel('Actual House Prices')
     plt.ylabel('Predicted House Prices')
     plt.title('Actual vs. Predicted House Prices')
@@ -85,7 +85,7 @@ def display_error_plot(y_test, y_pred):
     The x-axis shows the houses while the y-axis shows the difference in predictions.
     """
     plt.figure(figsize=(12, 6))
-    plt.plot(y_test.values - y_pred, color='green')
+    plt.plot(y_test.values - y_pred, color='green', alpha=0.7)
     plt.xlabel('Index')
     plt.ylabel('Error')
     plt.title('Error in Predicted House Prices')
