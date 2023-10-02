@@ -35,7 +35,7 @@ def display_scatterplotraw(data):
     plt.xlabel('Square Foot Living Area')
     plt.ylabel('House Price')
     plt.title('House Price vs. Square Foot Living Area')
-    adjust_yticks()
+    adjust_ticks(data)
     plt.show()
 
 
@@ -51,13 +51,13 @@ def display_regression(data, X_pred_values, y_pred_values):
     plt.title('Raw Data with Regression Line: Price vs. Square Footage Living Area')
     plt.xlabel('Square Footage Living Area')
     plt.ylabel('Price')
-    adjust_yticks()
+    adjust_ticks(data)
     plt.grid(True)
     plt.tight_layout()
     plt.show()
 
 
-def display_actual_vs_predicted(y_test, y_pred):
+def display_actual_vs_predicted(y_test, y_pred, data):
     """
     This function allows one to see and compare the actual house prices on the x-axis with the prices the train model
     predicted on the y-axis.
@@ -70,7 +70,8 @@ def display_actual_vs_predicted(y_test, y_pred):
     plt.xlabel('Actual House Prices')
     plt.ylabel('Predicted House Prices')
     plt.title('Actual vs. Predicted House Prices')
-    adjust_yticks()
+    adjust_ticks(data, "y")
+    adjust_ticks(data, "x")
     plt.grid(True)
     limits = [min(min(y_test), min(y_pred)), max(max(y_test), max(y_pred))]
     plt.plot(limits, limits, color='blue', linestyle='--', linewidth=2)
@@ -107,14 +108,42 @@ def compute_regression_line_values(model, data):
     return X_pred_values, y_pred_values
 
 
-def adjust_yticks():
-    """
-    This function changes the y-axis to millions of dollars for the above plots.
-    """
-    plt.ylim(0, 8000000)
-    yticks = [0, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000]
-    yticklabels = ['0', '$1M', '$2M', '$3M', '$4M', '$5M', '$6M', '$7M', '$8M']
-    plt.yticks(yticks, yticklabels)
+def determine_outliers(data_series):
+    Q1 = data_series.quantile(0.25)
+    Q3 = data_series.quantile(0.75)
+    IQR = Q3 - Q1
+
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+
+    return any(data_series < lower_bound) or any(data_series > upper_bound)
+
+
+def filterout_outliers(dataframe, column_name):
+    Q1 = dataframe[column_name].quantile(0.25)
+    Q3 = dataframe[column_name].quantile(0.75)
+    IQR = Q3 - Q1
+
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+
+    return dataframe[(dataframe[column_name] >= lower_bound) & (dataframe[column_name] <= upper_bound)]
+
+
+def adjust_ticks(data, axis='y'):
+    max_price = data['price'].max()
+    # To round up the max price to the nearest million for y-axis limit
+    max_limit = (max_price // 1000000 + 1) * 1000000
+    ticks = list(range(0, int(max_limit) + 1, 1000000))
+
+    tick_marks = ['0']
+    for index in range(1, len(ticks)):
+        tick_marks.append(f'${index}M')
+
+    if axis == 'y':
+        plt.yticks(ticks, tick_marks)
+    elif axis == 'x':
+        plt.xticks(ticks, tick_marks)
 
 
 def main():
@@ -124,6 +153,26 @@ def main():
     data = pd.read_csv('kc_house_data.csv')
     print(data.head())
     print("\r")  # Carriage return new line
+
+    # Check for missing values
+    missing_values = data.isnull().sum()
+    print("Missing values by columns:")
+    print(missing_values)
+    print("\r")
+
+    # Check for outliers
+    sqft_outliers = determine_outliers(data['sqft_living'])
+    print(f"Outliers in sqft_living: {'Yes' if sqft_outliers else 'No'}")
+    print("\r")
+
+    # Filter outliers
+    if sqft_outliers:
+        data = filterout_outliers(data, 'sqft_living')
+        print("Outliers in 'sqft_living' have been filtered out.")
+        print("\r")
+    else:
+        print("No outliers detected in 'sqft_living'.")
+        print("\r")
 
     # Display dataset statistics
     print(data.describe())
@@ -202,7 +251,7 @@ def main():
     display_regression(data, X_pred_values, y_pred_values)
 
     # Display scatterplot of actual vs. predicted data with regression line
-    display_actual_vs_predicted(y_test, y_pred)
+    display_actual_vs_predicted(y_test, y_pred, data)
 
     # Display line graph showing the error
     display_error_plot(y_test, y_pred)
